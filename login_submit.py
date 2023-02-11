@@ -1,4 +1,4 @@
-
+######################################################## final verion ################################# 
 import tkinter as tk
 from tkinter import messagebox
 import sqlite3
@@ -86,7 +86,6 @@ def re_window():
                 error2_label.config(re_window, text='  Error  :   Iwrong input',fg="red")
         except:
             error2_label.config(re_window, text='  Error  :   Iwrong input',fg="red")
-            
     submit_button = tk.Button(re_window, text="Submit", command=submit)
     submit_button.grid(row=9, column=1)
 #============================= Create the functions============================
@@ -148,7 +147,6 @@ def edit():
         # ------------------------------Create a button to add data to the database
         add_data_button = tk.Button(add_window, text="Add Data", command=add_data_to_database)
         add_data_button.pack()
-
     #--------------------------- Create a function to delete data from the database
     def delete_data():
         #------------------------------------------------------ Create a new window
@@ -183,7 +181,6 @@ def edit():
         name_label.pack()
         name_entry = tk.Entry(edit_window)
         name_entry.pack()
-
         age_label = tk.Label(edit_window, text="Age")
         age_label.pack()
         age_entry = tk.Entry(edit_window)
@@ -201,7 +198,6 @@ def edit():
         #----------------------------- Create a button to edit data in the database
         edit_data_button = tk.Button(edit_window, text="Edit Data", command=edit_data_in_database)
         edit_data_button.pack()
-
     #----------------------------- Create a function to load data from the database
     def load_data():
         #------------------------------------------------------- Clear the list box
@@ -227,7 +223,6 @@ def edit():
     #=============================================================== Run the window
     window.mainloop()
 def shop():
-   
     #--------- -----------Create the root window
     shop = tk.Tk()
     #----------------------- Set window title
