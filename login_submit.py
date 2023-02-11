@@ -1,4 +1,4 @@
-######################################################## final verion ################################# 
+################################## final verion ############################### 
 import tkinter as tk
 from tkinter import messagebox
 import sqlite3
@@ -28,7 +28,7 @@ users = {
     "admin": "123456789"
 }
 #==========================register window for submit==========================
-#------------------submit function
+#---------------------------------submit function------------------------------
 def re_window():
     root.destroy()
     # Create a database if it does not exist
@@ -36,11 +36,11 @@ def re_window():
     c = conn.cursor()
     # Create a table if it does not exist
     c.execute("CREATE TABLE IF NOT EXISTS user_list (username TEXT, password TEXT, user_address TEXT, user_number INTEGER)")
-    # Function to close the root window and open the register window    
+    # Function to close the root window and open the register window------------
     re_window = tk.Tk()
     re_window.title("Submit")
     re_window.geometry("280x180")
-    # Create labels for the register window
+    # Create labels for the register window-------------------------------------
     username_label = tk.Label(re_window, text="Username")
     username_label.grid(row=0, column=0)
     password_label = tk.Label(re_window, text="Password")
@@ -51,7 +51,7 @@ def re_window():
     user_address_label.grid(row=3, column=0)
     user_number_label = tk.Label(re_window, text="User Number")
     user_number_label.grid(row=4, column=0)
-    # Create entry boxes for the register window
+    # Create entry boxes for the register window---------------------------------
     username_entry = tk.Entry(re_window)
     username_entry.grid(row=0, column=1)
     password_entry = tk.Entry(re_window)
@@ -62,13 +62,13 @@ def re_window():
     user_address_entry.grid(row=3, column=1)
     user_number_entry = tk.Entry(re_window)
     user_number_entry.grid(row=4, column=1)
-    # Error for re_window
+    # Error for re_window--------------------------------------------------------------
     error2_label = tk.Label(re_window, text='some thing is wrong')
     error2_label.grid(row=9, columnspan=1 )
-    #======================== Function to get the values from the entry boxes and save them in the database
+    #==Function to get the values from the entry boxes and save them in the database###
     def submit():
         try:
-            # Get the values from the entry boxes
+            # Get the values from the entry boxes---------------------------------------
             username = username_entry.get()
             password = password_entry.get()
             confirm_password = confirm_password_entry.get()
@@ -88,26 +88,25 @@ def re_window():
             error2_label.config(re_window, text='  Error  :   Iwrong input',fg="red")
     submit_button = tk.Button(re_window, text="Submit", command=submit)
     submit_button.grid(row=9, column=1)
-#============================= Create the functions============================
+#============================= Create the functions ===============================
 def login():
     username = entry1.get()
     password = entry2.get()
     if username in users and users[username] == password:
         messagebox.showinfo("Login Successful", "Welcome!")
-        #==============================sugn up===============
+        #==============================sugn up=====================================
         re_window
     else:
         messagebox.showerror("Login Failed", "Incorrect username or password")
-#------------------------------ sign up       
+#------------------------------ sign up  ------------------------------------------     
 def signup():
-   
     username = entry1.get()
     if username not in users:
         messagebox.showinfo("Sign Up Successful", "Welcome!")
         return re_window
     else:
         messagebox.showerror("Sign Up Failed", "Username already taken")   
-#================================ shop ========================================
+#==================================== shop ========================================
 def edit():
     conn = sqlite3.connect('database.db')
     # --------------------------------Create a cursor to interact with the database
@@ -223,29 +222,29 @@ def edit():
     #=============================================================== Run the window
     window.mainloop()
 def shop():
-    #--------- -----------Create the root window
+    #--------- -----------Create the root window-------------------------------
     shop = tk.Tk()
-    #----------------------- Set window title
+    #----------------------- Set window title----------------------------------
     shop.title("Shop")
-    # ------------------------Set window size
+    # ------------------------Set window size----------------------------------
     shop.geometry("400x200")
-    # -----------------------Create the frames
+    # -----------------------Create the frames---------------------------------
     shop_frame1 = tk.Frame(shop)
     shop_frame2 = tk.Frame(shop)
-    # ------------------------Create the labels
+    # ------------------------Create the labels--------------------------------
     shop_label1 = tk.Label(shop_frame1, text="Welcome to the candy shop!")
-    #----------------------- Create the buttons
+    #----------------------- Create the buttons--------------------------------
     shop_button1 = tk.Button(shop_frame2, text="Browse Products")
     shop_button2 = tk.Button(shop_frame2, text="Edit account ", command=lambda: edit())
-    #-------------------------- Pack the frames
+    #-------------------------- Pack the frames--------------------------------
     shop_frame1.pack()
     shop_frame2.pack()
-    # --------------------------Pack the labels
+    # --------------------------Pack the labels--------------------------------
     shop_label1.pack()
-    #------------------------ Pack the buttons
+    #------------------------ Pack the buttons---------------------------------
     shop_button1.pack(side="left")
     shop_button2.pack(side="right")
-    # -------------------------Run the main loop
+    # -------------------------Run the main loop-------------------------------
     shop.mainloop()
 #------------------------------- Pack the frames-------------------------------
 frame1.pack()
